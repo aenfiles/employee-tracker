@@ -1,16 +1,16 @@
-const inquirer = require("inquirer"); //inquirer package -npm i inquirer
-const mysql = require('mysql2'); //mysql2package -npm i mysql2
-const consoleTable = require('console.table') //package for npm i console.table
-const dotenv = require('dotenv'); // npm i dotenv --save
+const inquirer = require("inquirer");
+const mysql = require('mysql2');
+const consoleTable = require('console.table');
+const dotenv = require('dotenv');
 const res = require("express/lib/response");
 
-// Database Connection -------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Database Connection
     const db = mysql.createConnection(
         {
         host: 'localhost',
-        // MySQL username --USE DOTENV TO HIDE VARIABLES *TODO*
+        // MySQL username -- *todo*
         user: '',
-        //  Add MySQL password here --USE DOTENV TO HIDE VARIABLES *TODO*
+        //  Add MySQL password here --*to do*
         password: '',
         database: 'corporate_db'
         },
@@ -21,12 +21,12 @@ const res = require("express/lib/response");
         promptUser();
     });
 
-//Inquirer Options to call functions with user input-------------------------------------------------------------------------------------------------------------------------------
+// Inquirer Options to call functions with user input
     function promptUser() {
         inquirer.prompt([
             {
             type: 'list',
-            message: "Big-Broth0r-Employee-Tracker V1.0.1: Select an option to interact with the database",
+            message: "employee-tracker V1.0.1: Select an option to interact with the database",
             name: 'questions',
             choices: ['View all departments','View all employees','View all roles','Add a department','Add a role','Add an employee','Update an employee role']
             },
@@ -66,7 +66,7 @@ const res = require("express/lib/response");
             });
     }
 
-//Functions that interact with database-------------------------------------------------------------------------------------------------------------
+// Functions that interact with database
 
     // Displays a table of all departments with names and IDs (department specific IDs)
     function viewallDepartments(){
